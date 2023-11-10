@@ -1,0 +1,17 @@
+body {
+    background-color: #f3e4c0; /* Aged parchment background */
+  }
+  
+  .button {
+    background-color: #6b5839; /* Vintage brown for buttons */
+    color: #ffebcd; /* Light cream text color */
+  }
+  
+  .book-cover {
+    background-image: linear-gradient(45deg, #9e7e5d 25%, transparent 25%),
+                      linear-gradient(135deg, #9e7e5d 25%, transparent 25%),
+                      linear-gradient(45deg, transparent 75%, #9e7e5d 75%),
+                      linear-gradient(135deg, transparent 75%, #9e7e5d 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 0, 0 10px, 10px 10px;
+    background-color: #ffebcd; /* creamy background */
