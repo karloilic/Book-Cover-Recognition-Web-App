@@ -8,6 +8,10 @@ const imageDataArray = [];
 const data1Array = [];
 const data2Array = [];
 
+const MAX_BUFFER_SIZE = 100000; // Set the maximum buffer size
+const dataArray = new Array(MAX_BUFFER_SIZE);
+let bufferIndex = 0; // Current index in the circular buffer
+
 // Function to fetch an individual type of data
 function fetchData(url, dataArray) {
   return fetch(url)
@@ -51,6 +55,8 @@ function createImageElement(imageData) {
     return imageElement;
   }
 
+  
+
 // Function to display the data in the UI
 function displayDataInUI(images, data1, data2) {
   const imageContainer = document.getElementById('image-container'); // Replace string with your container element ID
@@ -76,3 +82,25 @@ function displayDataInUI(images, data1, data2) {
     data2Container.appendChild(data2Element);
   }
 }
+
+// Function to compare the uploaded image with the fetched images
+function compareImages() {
+  const imageInput = document.getElementById('imageInput');
+  const resultsContainer = document.getElementById('results');
+  const uploadedImage = imageInput.files[0];
+
+  // Check if an image has been uploaded
+  if (uploadedImage) {
+      // You can perform image similarity comparison here...
+      // For the sake of this example, let's display the uploaded image.
+      const uploadedImageElement = document.createElement('img');
+      uploadedImageElement.src = URL.createObjectURL(uploadedImage);
+      resultsContainer.innerHTML = ''; // Clear previous results
+      resultsContainer.appendChild(uploadedImageElement);
+  } else {
+      alert('Please upload an image to compare.');
+  }
+}
+
+// Attach the compareImages function to the button click event
+document.getElementById('compareButton').addEventListener('click', compareImages);
